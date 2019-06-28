@@ -44,14 +44,14 @@ while(1):
     dmg = 0
     count = 0
 
-    if(guess_row < 0 or guess_row > 10) or (guess_col < 0 or guess_col > 10):
+    if(guess_row < 0 or guess_row > 9) or (guess_col < 0 or guess_col > 9):
         print("\n------------------\nOops, that's not even in the ocean.\n------------------\n")
     elif (board[guess_row][guess_col] == "X"):
         print("\n------------------\nYou hit that one already.\n------------------\n")
     else:
         for item in shiplist:
-            myship = int("".join(map(num, item)))
-            fire = int("".join(map(num, hisguess)))
+            myship = int("".join(map(str, item)))
+            fire = int("".join(map(str, hisguess)))
             
             if (myship == fire):
                 if damaged:
