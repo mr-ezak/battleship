@@ -23,3 +23,16 @@ ship7 = [[6, 8], [6, 9]]
 
 # The array that contain all of our ships locations in one place
 shiplist = [ship1[0], ship1[1], ship1[2], ship1[3], ship1[4], ship2[0], ship2[1], ship2[2], ship2[3], ship2[4], ship3[0], ship3[1], ship3[2], ship4[0], ship4[1], ship4[2], ship5[0], ship5[1], ship6[0], ship6[1], ship7[0], ship7[1]]
+
+#Creating our 10*10 board
+for x in range(10):
+    board.append(["~"] * 10)
+
+def print_board(board):
+    for row in board:
+        print((" ").join(row))
+
+#Start the game by printing a message and creat our board
+print("Let's play Battleship!")
+print_board(board)
+
