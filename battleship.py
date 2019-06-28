@@ -36,3 +36,10 @@ def print_board(board):
 print("Let's play Battleship!")
 print_board(board)
 
+while(1):
+    print("turn: ",turn)
+    guess_row = int(input("Guess Row:"))
+    guess_col = int(input("Guess Col:"))
+    hisguess = [guess_row, guess_col]
+    dmg = 0
+    count = 0
