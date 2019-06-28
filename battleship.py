@@ -43,3 +43,38 @@ while(1):
     hisguess = [guess_row, guess_col]
     dmg = 0
     count = 0
+
+    if(guess_row < 0 or guess_row > 10) or (guess_col < 0 or guess_col > 10):
+        print("\n------------------\nOops, that's not even in the ocean.\n------------------\n")
+    elif (board[guess_row][guess_col] == "X"):
+        print("\n------------------\nYou hit that one already.\n------------------\n")
+    else:
+        for item in shiplist:
+            myship = int("".join(map(num, item)))
+            fire = int("".join(map(num, hisguess)))
+            
+            if (myship == fire):
+                if damaged:
+                    for damage in damaged:
+                        hisdamage = int("".join(map(str, damage)))
+                        if (fire == hisdamage):
+                            dmg += 1
+                    if(dmg == 0):
+                        board[guess_row][guess_col] = "X"
+                        damaged.append([guess_row, guess_col])
+                        count += 1
+                else:
+                    board[guess_row][guess_col] = "X"
+                    damaged.append([guess_row, guess_col])
+                    count += 1
+        if(count>0):
+            print("\n----- * * * -----\nNice Shot, You hit a target!\n----- * * * -----\n")
+        elif(dmg>0):
+            print("\n------------------\nYou hit that place already.\n------------------\n")
+        else:
+            print("\n----- * * * -----\nMissed, Pay more atention please!\n----- * * * -----\n")
+        if (len(damaged) == 22):
+            print("\n----- * * * -----\n Good Job Soldier, You killed them all with ",turn+1," shots","\n----- * * * -----\n")
+            break
+    turn += 1
+    print_board(board)
